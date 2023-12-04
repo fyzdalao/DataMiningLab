@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from sklearn.cluster import KMeans
 from sklearn import datasets
 from sklearn import metrics
 from my_plot import MyPlot
+from sklearn.cluster import OPTICS
 
 
 iris = datasets.load_iris()
@@ -11,7 +11,7 @@ X = iris.data[:, :4]
 label_true = iris.target
 
 
-worker = KMeans(n_clusters=3)
+worker = OPTICS(min_samples=20)
 worker.fit(X)
 label_pred = worker.labels_
 
